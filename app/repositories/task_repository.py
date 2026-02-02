@@ -72,6 +72,7 @@ class TaskRepository:
         Delete a task (Soft Delete).
         """
 
-        db_task.is_deleted = True
+        setattr(db_task, 'is_deleted', True)
         self.db.commit()
         self.db.refresh(db_task)
+
